@@ -8,7 +8,7 @@ feature 'Login Module' do
 
   before(:each) do
     visit '/'
-    @account = 1008
+    @account = '1008'
     @username = 'merklensqa@gmail.com'
     @password = 'Test1234'
   end
