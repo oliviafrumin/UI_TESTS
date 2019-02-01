@@ -25,7 +25,7 @@ feature 'Login Module' do
     login(@username, @password)
     find_account(@account)
     # binding.pry
-    account_name = find(:xpath, "//section[@id='primary']/div/h1", wait: 2)
+    account_name = find(:xpath, "//*[@id='account_name']", wait: 2)
     account_name.text eq 'Nearsoft Automation'
     sleep 1
   end
