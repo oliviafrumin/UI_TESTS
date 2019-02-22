@@ -29,7 +29,7 @@ feature 'Badges Module' do
     within '.flash_notice' do
       verify_content 'Badge series was successfully added.'
     end
-    sleep 1
+    sleep 2
   end
 
   it 'should add a new badge' do
@@ -38,7 +38,7 @@ feature 'Badges Module' do
     within '.flash_notice' do
       verify_content 'Badge was successfully added.'
     end
-    sleep 1
+    sleep 2
   end
 
   it 'should modify a badge' do
@@ -47,7 +47,7 @@ feature 'Badges Module' do
     within '.flash_notice' do
       verify_content 'Badge was successfully updated.'
     end
-    sleep 1
+    sleep 2
   end
 
   it 'should delete a badge' do

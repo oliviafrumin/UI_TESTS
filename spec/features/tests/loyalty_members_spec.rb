@@ -26,7 +26,7 @@ feature 'Members Module' do
     within '.flash_notice' do
       verify_content 'Member was successfully added.'
     end
-    sleep 1
+    sleep 2
   end
 
   it 'should find an account member' do
