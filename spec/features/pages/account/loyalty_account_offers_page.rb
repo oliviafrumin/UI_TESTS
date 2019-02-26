@@ -35,6 +35,7 @@ module OffersPage
     find(:xpath, "//div[@id='group-c']/a/div", wait: 2).click
     find(:id, 'point_promotion_external_ids', wait: 2).click
     find(:xpath, "//*[@id='point_promotion_external_ids']", wait: 2).set(name + '_External_ID')
+    # binding.pry
     fill_in 'point_promotion_name', with: name
     fill_in 'point_promotion_display_name', with: name + '_Display_Name'
     fill_in 'point_promotion_description', with: name + '_Description'
@@ -43,10 +44,15 @@ module OffersPage
     sleep 5
     find(:xpath, "//*[@id='point_rule_timebased_content']/dl[1]/dt[1]/input[1]", wait: 2).click
     find(:xpath, "//div[4]/div[1]/div[2]/table/tbody/tr[4]/td[6]/div", wait: 2).click
-    sleep 5
+    sleep 1
     find(:xpath, "//*[@id='point_rule_timebased_content']/dl[1]/dt[2]/input[1]", wait: 2).click
-    find(:xpath, "//div[5]/div[1]/div[2]/table/tbody/tr[4]/td[7]/div", wait: 2).click
-    sleep 5
+    find(:xpath, "//div[5]/div[1]/div[2]/table/tbody/tr[5]/td[5]/div", wait: 2).click
+    # find(:xpath, "//div[5]/div[1]/div[1]/div[2]/span", wait: 2).click
+    # find(:xpath, "//div[5]/div[1]/div[1]/div[2]/div", wait: 2).click
+    # find(:xpath, "//div[5]/div[1]/div[1]/div[2]/div/div[1]/div[71]", wait: 2).click
+    # find(:xpath, "//div[5]/div[1]/div[2]/table/tbody/tr[5]/td[3]/div", wait: 2).click
+    # find(:xpath, "//div[5]/div[1]/div[1]/div[2]/div").find(:xpath, :xpath, "//div[5]/div[1]/div[1]/div[2]/div/div[1]/div[71]").select_option
+    sleep 1
     # binding.pry
     # find(:xpath, "//div[@id='point_rule_timebased_content']/*/dt[contains(text(), 'Start Date')]/input[@class='datepicker hasDatepicker']", wait: 2).click
     # find(:xpath, "//div[@id='ui-datepicker-div']/table/tbody/tr/td/a[.//text()='" + Date.today.day.to_s + "']", wait: 2).click
