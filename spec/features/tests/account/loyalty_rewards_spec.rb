@@ -38,6 +38,14 @@ feature 'Rewards Module' do
     sleep 1
   end
 
+  # it 'should modify a reward limit' do
+  #   modify_reward_limit @reward_name
+  #   within '.flash_notice' do
+  #     verify_content 'Reward was successfully updated.'
+  #   end
+  #   sleep 2
+  # end
+
   it 'should delete a reward' do
     delete_reward @reward_name
     page.current_url == Capybara.app_host + '/accounts/'.concat(@account.to_s).concat('/rewards')
