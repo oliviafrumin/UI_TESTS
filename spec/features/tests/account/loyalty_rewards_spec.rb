@@ -12,7 +12,7 @@ feature 'Rewards Module' do
   end
 
   before(:each) do
-    @account = '1008'
+    @account = '1061'
     @username = 'merklensqa@gmail.com'
     @password = 'Test1234'
     visit '/'
@@ -38,13 +38,13 @@ feature 'Rewards Module' do
     sleep 1
   end
 
-  # it 'should modify a reward limit' do
-  #   modify_reward_limit @reward_name
-  #   within '.flash_notice' do
-  #     verify_content 'Reward was successfully updated.'
-  #   end
-  #   sleep 2
-  # end
+  it 'should modify a reward limit' do
+    modify_reward_limit @reward_name
+    within '.flash_notice' do
+      verify_content 'Reward was successfully updated.'
+    end
+    sleep 2
+  end
 
   it 'should delete a reward' do
     delete_reward @reward_name

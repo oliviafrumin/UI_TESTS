@@ -24,14 +24,12 @@ module RewardsPage
   end
 
   def modify_reward_limit(name)
-    status = find(:id, 'timeframe_0_always', wait: 2)
-    status.click unless status.checked?
-    # find(:xpath, "//*[@id='timeframe_0_always']").click
-    # find(:xpath, "//*[@id='reward_limit_enabled']").click
-    binding.pry
-    # find(:xpath, "//*[@id='reward_cap_attributes_timeframe_lifetime_year']").click
-    # find(:xpath, "//*[@id='limited_redemption_lifetime_value']", wait: 2).send(2)
-    # fill_in 'limited_redemption_lifetime_value', with: '2'
+    find(:xpath, "//a/dt[contains(text(), '" + name + "')]", wait: 2).click
+    find(:xpath, "//select[@id='reward_limit_enabled']/option[@value='true']", wait: 2).click
+    fill_in 'limited_redemption_lifetime_value', with: '1'
+    find(:xpath, "//select[@id='reward_cap_attributes_timeframe_select']/option[@value='lifetime']", wait: 2).click
+    click_link_or_button 'Save'
+    # binding.pry
   end
 
   def delete_reward(name)

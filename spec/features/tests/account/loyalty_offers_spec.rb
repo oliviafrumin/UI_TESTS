@@ -13,7 +13,7 @@ feature 'Offers Module' do
   end
 
   before(:each) do
-    @account = '1008'
+    @account = '1061'
     @username = 'merklensqa@gmail.com'
     @password = 'Test1234'
     visit '/'
