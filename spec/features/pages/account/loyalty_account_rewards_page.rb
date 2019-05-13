@@ -29,7 +29,18 @@ module RewardsPage
     fill_in 'limited_redemption_lifetime_value', with: '1'
     find(:xpath, "//select[@id='reward_cap_attributes_timeframe_select']/option[@value='lifetime']", wait: 2).click
     click_link_or_button 'Save'
+  end
+
+  def modify_reward_history(name)
+    find(:xpath, "//a/dt[contains(text(), '" + name + "')]", wait: 2).click
+    click_link_or_button 'Add rule'
+    sleep 5
+    find(:css, "#queryBuilder_0_rule_0", wait: 2).click
+    find(:css, "#queryBuilder_0_rule_0 > div.rule-filter-container > select > option:nth-child(2)", wait: 2).click
     # binding.pry
+    find(:css, "#queryBuilder_0_rule_0 > div.rule-operator-container > select > option:nth-child(2)", wait: 2).click
+    find(:css, "#queryBuilder_0_rule_0 > div.rule-value-container > select > option:nth-child(4)", wait: 2).click
+    click_link_or_button 'Save'
   end
 
   def delete_reward(name)
