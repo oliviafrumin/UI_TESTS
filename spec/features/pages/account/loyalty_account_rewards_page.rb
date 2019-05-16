@@ -20,6 +20,9 @@ module RewardsPage
   def modify_reward(name)
     find(:xpath, "//a/dt[contains(text(), '" + name + "')]", wait: 2).click
     fill_in 'reward_points', with: '35'
+    find(:xpath, "//select[@id='reward_tiers_required']/option[@value='true']", wait: 2).click
+    find(:css, "#reward_tier_ids_3923", wait: 2).click
+    find(:xpath, "//select[@id='reward_badge_id']/option[@value='38744']", wait: 2).click
     click_link_or_button 'Save'
   end
 
@@ -40,6 +43,7 @@ module RewardsPage
     # binding.pry
     find(:css, "#queryBuilder_0_rule_0 > div.rule-operator-container > select > option:nth-child(2)", wait: 2).click
     find(:css, "#queryBuilder_0_rule_0 > div.rule-value-container > select > option:nth-child(4)", wait: 2).click
+    find(:css, "#timeframe_0_always", wait: 2).click
     click_link_or_button 'Save'
   end
 
