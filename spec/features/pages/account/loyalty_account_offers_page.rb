@@ -41,23 +41,25 @@ module OffersPage
     fill_in 'point_promotion_description', with: name + '_Description'
     fill_in 'point_promotion_legal', with: name + '_Legal'
     find(:xpath, "//div[@id='point_promotion_display_icon_url']//input[@name='file']", wait: 2).set(File.absolute_path('./lib/data/promotion.png'))
-    sleep 5
-    find(:xpath, "//*[@id='point_rule_timebased_content']/dl[1]/dt[1]/input[1]", wait: 2).click
-    find(:xpath, "//div[4]/div[1]/div[2]/table/tbody/tr[4]/td[6]/div", wait: 2).click
-    sleep 1
-    find(:xpath, "//*[@id='point_rule_timebased_content']/dl[1]/dt[2]/input[1]", wait: 2).click
-    find(:xpath, "//div[5]/div[1]/div[2]/table/tbody/tr[5]/td[5]/div", wait: 2).click
-    # find(:xpath, "//div[5]/div[1]/div[1]/div[2]/span", wait: 2).click
-    # find(:xpath, "//div[5]/div[1]/div[1]/div[2]/div", wait: 2).click
-    # find(:xpath, "//div[5]/div[1]/div[1]/div[2]/div/div[1]/div[71]", wait: 2).click
-    # find(:xpath, "//div[5]/div[1]/div[2]/table/tbody/tr[5]/td[3]/div", wait: 2).click
-    # find(:xpath, "//div[5]/div[1]/div[1]/div[2]/div").find(:xpath, :xpath, "//div[5]/div[1]/div[1]/div[2]/div/div[1]/div[71]").select_option
+
+    # ==========
     sleep 1
     # binding.pry
-    # find(:xpath, "//div[@id='point_rule_timebased_content']/*/dt[contains(text(), 'Start Date')]/input[@class='datepicker hasDatepicker']", wait: 2).click
-    # find(:xpath, "//div[@id='ui-datepicker-div']/table/tbody/tr/td/a[.//text()='" + Date.today.day.to_s + "']", wait: 2).click
-    # find(:xpath, "//div[@id='point_rule_timebased_content']/*/dt[contains(text(), 'End Date')]/input[@class='datepicker hasDatepicker']", wait: 2).click
-    # find(:xpath, "//div[@id='ui-datepicker-div']/table/tbody/tr/td/a[.//text()='" + Date.today.day.to_s + "']", wait: 2).click
+    find(:xpath, "//input[@class='datepicker start_date start_date_date hasDatepicker']", wait: 2).click
+    find(:xpath, "//div[@id='ui-datepicker-div']/table/tbody/tr/td/a[.//text()='" + Date.today.day.to_s + "']", wait: 2).click
+    sleep 1
+    # time = Time.new.hour+ 2
+    find(:xpath, "//input[@id='point_promotion_datetime_start_date_time']", wait: 2).click
+    sleep 3
+    find(:css, 'div.wickedpicker > ul > li:nth-child(1) > span.wickedpicker__controls__control-up', wait: 2).click
+    find(:css, 'div.wickedpicker > ul > li:nth-child(3) > span.wickedpicker__controls__control-up', wait: 2).click
+    find(:css, 'div.wickedpicker > ul > li:nth-child(4) > span.wickedpicker__controls__control-up', wait: 2).click
+    # puts time
+    find(:xpath, "//input[@class='datepicker end_date end_date_date hasDatepicker']", wait: 2).click
+    date = Date.today.day+1
+    find(:xpath, "//div[@id='ui-datepicker-div']/table/tbody/tr/td/a[.//text()='" + date.to_s + "']", wait: 2).click
+    puts date
+    # ==========
     find(:id, "point_promotion_point_strategies_attributes_0_rule_type", wait: 2).click
     find(:xpath, "//select[@id='point_promotion_point_strategies_attributes_0_rule_type']/option[@value='equals']", wait: 2).click
     fill_in 'point_promotion_point_strategies_attributes_0_value', with: 5

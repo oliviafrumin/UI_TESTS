@@ -23,29 +23,29 @@ feature 'Offers Module' do
     navigate_account_offers
   end
 
-  it 'should add a new deal' do
-    add_deal @deal_name
-    within '.flash_notice' do
-      verify_content 'Deal created successfully.'
-    end
-    sleep 1
-  end
-
-  it 'should update a deal' do
-    update_deal @deal_name
-    within '.flash_notice' do
-      verify_content 'Deal updated successfully.'
-    end
-    sleep 1
-  end
-
-  it 'should delete a deal' do
-    delete_deal @deal_name
-    within '.flash_notice' do
-      verify_content 'The deal has been deleted.'
-    end
-    sleep 1
-  end
+  # it 'should add a new deal' do
+  #   add_deal @deal_name
+  #   within '.flash_notice' do
+  #     verify_content 'Deal created successfully.'
+  #   end
+  #   sleep 1
+  # end
+  #
+  # it 'should update a deal' do
+  #   update_deal @deal_name
+  #   within '.flash_notice' do
+  #     verify_content 'Deal updated successfully.'
+  #   end
+  #   sleep 1
+  # end
+  #
+  # it 'should delete a deal' do
+  #   delete_deal @deal_name
+  #   within '.flash_notice' do
+  #     verify_content 'The deal has been deleted.'
+  #   end
+  #   sleep 1
+  # end
 
   it 'should add a new promotion' do
     add_promotion @promotion_name
