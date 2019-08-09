@@ -53,29 +53,32 @@ module OffersPage
     # time = Time.new.hour+ 2
     page.execute_script "window.scrollTo(0,700)"
     sleep 4
-    find(:xpath, "//input[@id='point_promotion_datetime_start_date_time']", wait: 2).click
+    # find(:xpath, "//input[@id='point_promotion_datetime_start_date_time']", wait: 2).click
 
 
-    availability = verify_content 'Time of day'
-
-    if (availability==true)
-      print availability
-      sleep 2
-      find(:css, 'div.wickedpicker > ul > li:nth-child(1) > span.wickedpicker__controls__control-up', wait: 2).click
-      find(:css, 'div.wickedpicker > ul > li:nth-child(3) > span.wickedpicker__controls__control-up', wait: 2).click
-      find(:css, 'div.wickedpicker > ul > li:nth-child(4) > span.wickedpicker__controls__control-up', wait: 2).click
-    else
-      find(:xpath, "//input[@id='point_promotion_datetime_start_date_time']", wait: 2).click
-      find(:css, 'div.wickedpicker > ul > li:nth-child(1) > span.wickedpicker__controls__control-up', wait: 2).click
-      find(:css, 'div.wickedpicker > ul > li:nth-child(3) > span.wickedpicker__controls__control-up', wait: 2).click
-      find(:css, 'div.wickedpicker > ul > li:nth-child(4) > span.wickedpicker__controls__control-up', wait: 2).click
-    end
-    sleep 2
+    # availability = verify_content 'Time of day'
+    #
+    # if (availability==true)
+    #   print availability
+    #   sleep 2
+    #   find(:css, 'div.wickedpicker > ul > li:nth-child(1) > span.wickedpicker__controls__control-up', wait: 2).click
+    #   find(:css, 'div.wickedpicker > ul > li:nth-child(3) > span.wickedpicker__controls__control-up', wait: 2).click
+    #   find(:css, 'div.wickedpicker > ul > li:nth-child(4) > span.wickedpicker__controls__control-up', wait: 2).click
+    # else
+    #   find(:xpath, "//input[@id='point_promotion_datetime_start_date_time']", wait: 2).click
+    #   find(:css, 'div.wickedpicker > ul > li:nth-child(1) > span.wickedpicker__controls__control-up', wait: 2).click
+    #   find(:css, 'div.wickedpicker > ul > li:nth-child(3) > span.wickedpicker__controls__control-up', wait: 2).click
+    #   find(:css, 'div.wickedpicker > ul > li:nth-child(4) > span.wickedpicker__controls__control-up', wait: 2).click
+    # end
+    # sleep 2
 
     # puts time
     find(:xpath, "//input[@class='datepicker end_date end_date_date hasDatepicker']", wait: 2).click
     date_end = Date.today.day
+    print date_end
     find(:xpath, "//div[@id='ui-datepicker-div']/table/tbody/tr/td/a[.//text()='" + date_end.to_s + "']", wait: 2).click
+    find(:xpath, "//input[@id='point_promotion_datetime_end_date_time']", wait: 2).click
+    sleep 5
 
     # ==========
     find(:id, "point_promotion_point_strategies_attributes_0_rule_type", wait: 2).click
