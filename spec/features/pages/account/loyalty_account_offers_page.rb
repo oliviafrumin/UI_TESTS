@@ -47,7 +47,7 @@ module OffersPage
     # binding.pry
     find(:xpath, "//input[@class='datepicker start_date start_date_date hasDatepicker']", wait: 2).click
     sleep 2
-    date_start = Date.today.day - 1
+    date_start = Date.today.day
     find(:xpath, "//div[@id='ui-datepicker-div']/table/tbody/tr/td/a[.//text()='" + date_start.to_s + "']", wait: 2).click
     sleep 4
     # time = Time.new.hour+ 2

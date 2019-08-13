@@ -3,7 +3,7 @@ module LandingPage
 
   def logout(username)
     find(:xpath,"//*[@id='header']/ul/li[4]/div/a", wait: 2).click
-    find(:xpath,"//*[@id='header']/ul/li[4]/div/menu/ul/li[4]/a").click
+    find(:xpath,"//a[contains(text(),'Logout')]").click
   end
 
   # Main Navigation Bar
