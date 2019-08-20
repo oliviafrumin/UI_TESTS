@@ -8,9 +8,9 @@ feature 'Login Module' do
 
   before(:each) do
     visit '/'
-    @account = '1061'
-    @username = 'merklensqa@gmail.com'
-    @password = 'Test1234'
+    @account = '000'
+    @username = '000'
+    @password = '000'
   end
 
   it 'should sign in loyaltyplus' do

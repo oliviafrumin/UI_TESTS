@@ -14,9 +14,9 @@ feature 'Customer' do
   end
 
   before(:each) do
-    @account = 1008
-    @username = 'merklensqa@gmail.com'
-    @password = 'Test1234'
+    @account = '000'
+    @username = '000'
+    @password = '000'
     # @automation_member_1 = 'merklensqa+n1@gmail.com'
 
     visit '/'

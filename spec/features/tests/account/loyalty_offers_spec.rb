@@ -13,9 +13,9 @@ feature 'Offers Module' do
   end
 
   before(:each) do
-    @account = '1061'
-    @username = 'merklensqa@gmail.com'
-    @password = 'Test1234'
+    @account = '000'
+    @username = '000'
+    @password = '000'
     visit '/'
     login(@username, @password)
     find_account(@account)
