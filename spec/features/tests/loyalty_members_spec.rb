@@ -9,12 +9,14 @@ feature 'Members Module' do
 
   before(:all) do
     @member_id = 'AutoMember' + Time.now.to_i.to_s
+    @member_customer_id = '72631386'
+    @member_external_customer_id = '15829197145324865287'
   end
 
   before(:each) do
-    @account = '000'
-    @username = '000'
-    @password = '0000'
+    @account = '0000'
+    @username = '000000@000000.com'
+    @password = '00000000000000000'
     visit '/'
     login(@username, @password)
     find_account(@account)
@@ -34,7 +36,17 @@ feature 'Members Module' do
     verify_content 'Members » View' and verify_content 'Automation Member'
     sleep 1
   end
+  it 'should not find an account member CUSTOMER_ID' do
+    find_member @member_customer_id
+    verify_content 'Members » View' and verify_content '72631386'
+    sleep 1
+  end
 
+  it 'should find an account member EXTERNAL_CUSTOMER_ID' do
+    find_member @member_external_customer_id
+    verify_content 'Members » View' and verify_content '15829197145324865287'
+    sleep 1
+  end
   it 'should edit member profile' do
     # @member_id = 'automember1528942706'
     find_member @member_id
@@ -46,7 +58,6 @@ feature 'Members Module' do
   end
 
   it 'should view member events' do
-    # @member_id = 'automember1528942706'
     find_member @member_id
     open_manage_events
     verify_content 'Members » View » Manage Events'
@@ -97,7 +108,6 @@ feature 'Members Module' do
 
   it 'should link a offer' do
     find_member @member_id
-    # find_member 'automember1532730078'
     link_offer 'Auto_Promotion_Points_x2'
     verify_offer_is_linked
     sleep 1
@@ -105,25 +115,41 @@ feature 'Members Module' do
 
   it 'should unlink a offer' do
     find_member @member_id
-    # find_member 'automember1532730078'
     unlink_offer 'Auto_Promotion_Points_x2'
     verify_offer_is_not_linked
     sleep 1
   end
 
   # it 'should verify current point balance' do
-    #
+  #   find_member @member_id
   # end
 
   it 'should pause a member' do
-    # @member_id = 'automember1528942706'
     find_member @member_id
     pause_member
     within '.flash_notice' do
-      verify_content 'Successfully paused member.'
+      verify_content 'Successfully paused member'
     end
     sleep 1
   end
+
+  it 'should activate a member' do
+    find_member @member_id
+    activate_member
+    within '.flash_notice' do
+      verify_content 'Successfully activated member.'
+    end
+    sleep 1
+  end
+
+  # it 'should close a member' do
+  #   find_member @member_id
+  #   close_member
+  #   within '.flash_notice' do
+  #     verify_content 'Successfully activated member'
+  #   end
+  #   sleep 1
+  # end
 
   after(:each) do
     logout(@username)

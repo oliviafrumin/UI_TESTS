@@ -14,9 +14,9 @@ feature 'Badges Module' do
   end
 
   before(:each) do
-    @account = '000'
-    @username = '000'
-    @password = '000'
+    @account = '0000'
+    @username = '000000@000000.com'
+    @password = '00000000000000000'
     visit '/'
     login(@username, @password)
     find_account(@account)

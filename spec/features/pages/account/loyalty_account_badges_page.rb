@@ -46,14 +46,19 @@ module BadgesPage
     fill_in 'badge_instructions', with: 'Badge instructions'
     status = find(:id, 'badge_status', wait: 2)
     status.click unless status.checked?
-    find(:xpath, "//a[contains(text(), 'Save')]", wait: 2).click
+    page.execute_script "window.scrollTo(0,700)"
+    sleep 1
+    find(:xpath, "//a[@class='primary_button save_button']", wait: 2).click
   end
 
   def modify_badge(badge_series_name, badge_name)
     find(:xpath, "//tr[@class='item']//a//dt[contains(text(), '" + badge_series_name + "')]", wait: 2).click
     find(:xpath, "//tr[@class='item_table_row_badge']//a//dt[contains(text(), '" + badge_name + "')]", wait: 2).click
     fill_in 'badge_badge_rules_attributes_0_value', with: '4'
-    find(:xpath, "//a[contains(text(), 'Save')]", wait: 2).click
+    page.execute_script "window.scrollTo(0,700)"
+    sleep 1
+    # find(:xpath, "//a[contains(text(), 'Save')]", wait: 2).click
+    find(:xpath, "//a[@class='primary_button save_button']", wait: 2).click
   end
 
   def delete_badge(badge_series_name, badge_name)
